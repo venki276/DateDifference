@@ -24,4 +24,6 @@ This deploys the API on port **8080**.
 
 Both the above endpoints will render the required HTML.
 
+Screenshots of the running application are also attached.
+
 Thanks.
