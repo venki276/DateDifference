@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title th:text ="#{page.title}"></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/style.css}"></link>
+  <script type="text/javascript" th:src="@{/js/computeDifference.js}"></script>
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h2><span th:text ="#{page.header}"></span></h2>
+</div>
+<br/> 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-2">
+      <b><span th:text ="#{select.fromDate}"></span></b> 
+    </div>
+    <div class="col-xs-6 col-sm-10">
+    	<input type="date" id="fromDate" value="2016-08-01" onchange="$('#showDiff').hide();">
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-xs-6 col-sm-2">
+      <b><span th:text ="#{select.toDate}"></span></b>
+    </div> 
+    <div class="col-xs-6 col-sm-10">
+    	<input type="date" id="toDate" value="2016-09-01" onchange="$('#showDiff').hide();">
+    </div>
+  </div>   
+  <br/>
+  <div class="row">
+  	<div class="col-xs-12 col-sm-12">
+      <button class="btn btn-info" onclick="compute();"><span th:text ="#{button.compute}"></span></button>
+    </div>
+  </div>
+  <br/>
+  <div class="row" id="showDiff">
+  	<div class="col-xs-12 col-sm-12">      
+      	<span th:text ="#{show.date.difference.firstPart}"></span> <b><span id="diffDate"></span>&nbsp;<span th:text ="#{show.date.difference.secondPart}"></b>.
+    </div>
+  </div>
+</div>
+<br/>
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><span th:text ="#{error.modal.header}"></span></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      	<p th:text ="#{error.dates.difference}"></p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><span th:text ="#{button.close}"></span></button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div id="footer"><span>&copy;&nbsp;</span><span th:text ="#{page.footer}"></span></div>
+</body>
+</html>
